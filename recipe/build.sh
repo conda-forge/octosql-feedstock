@@ -2,7 +2,7 @@
 
 set -o xtrace -o nounset -o pipefail -o errexit
 
-go build -buildmode=pie -trimpath -o=${PREFIX}/bin/${PKG_NAME} -ldflags="-s -w -X github.com/cube2222/octosql/cmd.VERSION=${PKG_VERSION}"
+go build -o=${PREFIX}/bin/${PKG_NAME} -ldflags="-s -w -X github.com/cube2222/octosql/cmd.VERSION=${PKG_VERSION}"
 go-licenses save . --save_path=license-files --ignore github.com/cube2222/octosql --ignore github.com/xi2/xz
 
 if [[ ${build_platform} == ${target_platform} ]]; then
